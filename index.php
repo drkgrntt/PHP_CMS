@@ -1,3 +1,4 @@
+<?php include "includes/db.php"; ?>
 <?php include "includes/header.php"; ?>
 
 <!-- Navigation -->
@@ -9,6 +10,17 @@
 
     <!-- Blog Entries Column -->
     <div class="col-md-8">
+      <?php
+        $query = "SELECT * FROM posts";
+        $select_all_posts_query = mysqli_query($connection, $query);
+
+        while ($post = mysqli_fetch_assoc($select_all_posts_query)) {
+          $title = $post['post_title'];
+          $author = $post['post_author'];
+          $date = $post['post_date'];
+          $image = $post['post_image'];
+          $content = $post['post_content'];
+      ?>
       <h1 class="page-header">
         Page Heading
         <small>Secondary Text</small>
@@ -16,18 +28,21 @@
 
       <!-- First Blog Post -->
       <h2>
-        <a href="#">Blog Post Title</a>
+        <a href="#"><?php echo $title ?></a>
       </h2>
       <p class="lead">
-        by <a href="index.php">Start Bootstrap</a>
+        by <a href="index.php"><?php echo $author ?></a>
       </p>
-      <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</p>
+      <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $date ?></p>
       <hr>
-      <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+      <img class="img-responsive" src=<?php echo $image ?> alt="">
       <hr>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
+      <p><?php echo $content ?></p>
       <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
       <hr>
+      <?php
+        }
+      ?>
     </div>
 
     <?php include "includes/sidebar.php"; ?>

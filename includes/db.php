@@ -9,8 +9,4 @@
   }
 
   $connection = mysqli_connect(HOST, USER, PASS, NAME);
-
-  if ($connection) {
-    echo "We are connected";
-  }
 ?>
