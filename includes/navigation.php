@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <a class="navbar-brand" href="/cms">CMS Blog</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -26,6 +26,7 @@
             echo "<li key={$id}><a href='#'>{$title}</a></li>";
           }
         ?>
+        <li key="admin"><a href='admin'>Admin</a></li>
       </ul>
     </div>
     <!-- /.navbar-collapse -->

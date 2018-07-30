@@ -26,7 +26,7 @@
         <small>Secondary Text</small>
       </h1>
 
-      <!-- First Blog Post -->
+      <!-- Blog Posts -->
       <h2>
         <a href="#"><?php echo $title ?></a>
       </h2>
@@ -35,14 +35,12 @@
       </p>
       <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $date ?></p>
       <hr>
-      <img class="img-responsive" src=<?php echo $image ?> alt="">
+      <img class="img-responsive" src="images/<?php echo $image ?>" alt="">
       <hr>
       <p><?php echo $content ?></p>
       <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
       <hr>
-      <?php
-        }
-      ?>
+      <?php } ?>
     </div>
 
     <?php include "includes/sidebar.php"; ?>
