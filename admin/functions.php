@@ -1,4 +1,8 @@
 <?php
+
+// ==========================
+//         CATEGORIES        
+// ==========================
   function createCategory() {
     global $connection;
 
@@ -89,6 +93,42 @@
       $query = "DELETE FROM categories WHERE cat_id = {$deleted_id}";
       $delete_query = mysqli_query($connection, $query);
       header("Location: categories.php");
+    }
+  }
+
+// ==========================
+//           POSTS        
+// ==========================
+  function fetchAllPosts() {
+    global $connection;
+
+    $query = "SELECT * FROM posts";
+    $select_posts = mysqli_query($connection, $query);
+
+    while ($row = mysqli_fetch_assoc($select_posts)) {
+      $id = $row['post_id'];
+      $author = $row['post_author'];
+      $title = $row['post_title'];
+      $category_id = $row['post_category_id'];
+      $status = $row['post_status'];
+      $image = $row['post_image'];
+      $tags = $row['post_tags'];
+      $comment_count = $row['post_comment_count'];
+      $date = $row['post_date'];
+
+      echo '<tr>
+              <td>'.$id.'</td>
+              <td>'.$author.'</td>
+              <td>'.$title.'</td>
+              <td>'.$category_id.'</td>
+              <td>'.$status.'</td>
+              <td>'.$image.'</td>
+              <td>'.$tags.'</td>
+              <td>'.$comment_count.'</td>
+              <td>'.$date.'</td>
+              <td><a href="porsts.php?update='.$id.'">Edit</a></td>
+              <td><a href="porsts.php?delete='.$id.'">Delete</a></td>
+            </tr>';
     }
   }
 ?>
